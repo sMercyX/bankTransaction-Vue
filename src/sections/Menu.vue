@@ -16,7 +16,7 @@ const withdrawHandle = () => {
 
 const depositHandle = () => {
   const amount = transactionAmount.value;
-  if (amount > 0) transactionStore.deposit(amount);
+  transactionStore.deposit(amount);
   transactionAmount.value = null;
 };
 </script>

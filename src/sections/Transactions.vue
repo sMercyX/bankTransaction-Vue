@@ -6,12 +6,14 @@ import deleteIcon from "../assets/delete.svg";
 import editIcon from "../assets/edit.svg";
 
 const transactionStore = useTransactionStore();
-const { balance, transactions } = storeToRefs(transactionStore);
+const { transactions } = storeToRefs(transactionStore);
 const reversedTransactions = computed(() => [...transactions.value].reverse());
 const showEditModal = ref(false);
 const showDeleteModal = ref(false);
-const editAmount = ref(null);
+
 const editTransactionId = ref(null);
+const editAmount = ref(null);
+
 const deleteTransactionId = ref(null);
 
 const editTransaction = (transaction) => {
@@ -74,23 +76,22 @@ const cancelDelete = () => {
             </td>
             <td
               class="border border-gray-300"
-  
               :class="
-                transaction.type === 'deposit' ? 'text-green-500':'text-red-500'
+                transaction.type === 'deposit'
+                  ? 'text-green-500'
+                  : 'text-red-500'
               "
             >
               {{ transaction.type }}
             </td>
-            <td class="border border-gray-300">
-              $ {{ transaction.amount }}
-            </td>
+            <td class="border border-gray-300">$ {{ transaction.amount }}</td>
             <td
               class="border-t py-2 flex items-center justify-center gap-2 lg:gap-5"
             >
               <img
                 :src="editIcon"
                 alt="Edit"
-                class="h-3 lg:h-5 cursor-pointer hover:scale-110 transition-all duration-300" 
+                class="h-3 lg:h-5 cursor-pointer hover:scale-110 transition-all duration-300"
                 @click="editTransaction(transaction)"
               />
               <img
