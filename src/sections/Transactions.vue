@@ -48,7 +48,7 @@ const cancelDelete = () => {
 
 <template>
   <div
-    class="mx-auto w-[90%] h-[70vh] lg:h-[90vh] pt-2 overflow-y-auto text-xs lg:text-lg"
+    class="mx-auto w-[90%] h-[65vh] lg:h-[90vh] pt-2 overflow-y-auto text-xs lg:text-lg"
   >
     <h2
       class="text-xl lg:text-2xl font-bold mb-4 flex items-center justify-center"

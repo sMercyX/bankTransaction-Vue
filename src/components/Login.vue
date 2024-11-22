@@ -1,14 +1,13 @@
 <script setup>
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import { useTransactionStore } from '../store/transactionStore';
+  
 
 
   const email = ref('');
   const password = ref('');
   const errors = ref('');
   const router = useRouter();
-  const transactionStore = useTransactionStore();
 
   const accounts = [
     { email: 'titipong@gmail.com', password: '123',name:'titipong' },
@@ -23,7 +22,7 @@
     }
     
     localStorage.setItem('authentication', true);
-    transactionStore.login(account.name);
+    localStorage.setItem('user', account.name);
     router.push('/home');
   };
   </script>

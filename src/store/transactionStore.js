@@ -3,17 +3,12 @@ import { defineStore } from 'pinia';
 
 export const useTransactionStore = defineStore('account', {
   state: () => ({
-    user: '',
+
     balance: 0,
     transactions: [],
   }),
   actions: {
-    login(user) {
-      this.user = user;
-    },
-    logout() {
-      this.user = '';
-    },
+
     deposit(amount) {
       this.balance += amount;
       const date = new Date()
