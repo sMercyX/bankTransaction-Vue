@@ -2,13 +2,17 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import person from "../assets/person.svg";
+import { useTransactionStore } from "../store/transactionStore";
+import { storeToRefs } from "pinia";
 
+const transactionStore = useTransactionStore();
+const { user } = storeToRefs(transactionStore);
 const router = useRouter();
-const username = ref(localStorage.getItem("user"));
+const username = ref(user.value);
 
 const handleLogout = () => {
   localStorage.removeItem("authentication");
-  localStorage.removeItem("user");
+  transactionStore.logout();
   router.push("/login");
 };
 </script>
